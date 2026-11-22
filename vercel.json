@@ -1,9 +1,12 @@
+cat << 'EOF' > vercel.json
 {
   "redirects": [
     {
-      "source": "/((?!_astro|images|favicon).*)",
+      "source": "/:path((?!_astro/|images/|favicon\\.ico).+)",
       "destination": "/",
-      "permanent": true
+      "permanent": false
     }
   ]
 }
+EOF
+git add vercel.json && git commit -m "Fix root redirect loop in vercel.json" && git push
