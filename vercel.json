@@ -1,5 +1,9 @@
 {
   "redirects": [
-    { "source": "/:path+", "destination": "/", "permanent": true }
+    {
+      "source": "/((?!_astro|images|favicon).*)",
+      "destination": "/",
+      "permanent": true
+    }
   ]
 }
