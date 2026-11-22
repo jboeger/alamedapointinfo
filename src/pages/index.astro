@@ -1,16 +1,267 @@
 ---
+import "../styles/global.css";
+
+const archiveUrl =
+  "https://alamedapointenviro.com/alameda-point-info-the-ultimate-resource-for-the-past-present-and-future-of-alameda-point/";
+
+const slides = [
+  {
+    src: "/images/hero-sunset.jpg",
+    alt: "Sunset over San Francisco Bay from Alameda Point",
+    label: "Bay Sunset",
+    // Keeps the SF skyline and bottom-right credit framed on vertical phone screens
+    position: "object-[72%_center] sm:object-center",
+  },
+  {
+    src: "/images/aerial-housing.jpg",
+    alt: "Aerial view of new housing and historic hangars at Alameda Point",
+    label: "New Neighborhood",
+    // Keeps the USS Hornet, new townhomes, and watermark balanced on mobile
+    position: "object-[62%_center] sm:object-center",
+  },
+  {
+    src: "/images/hangar-doors.jpg",
+    alt: "Historic yellow hangar doors at Alameda Point",
+    label: "Historic Hangars",
+    // Keeps the yellow hangar doors and vertical left-edge credit visible on mobile
+    position: "object-[22%_center] sm:object-center",
+  },
+  {
+    src: "/images/shoreline.jpg",
+    alt: "Alameda Point shoreline and open space",
+    label: "Bay Shoreline",
+    // Keeps the shoreline curve and bottom-right credit in frame on portrait screens
+    position: "object-[68%_center] sm:object-center",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<!doctype html>
+<html lang="en" class="h-full overflow-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alameda Point Info | Historical Archive (2009–2026)</title>
+    <meta
+      name="description"
+      content="AlamedaPointInfo.com served as a central community repository for Alameda Point redevelopment from 2009 to 2026."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Subtle custom scrollbar for the inner text box on small viewports */
+      .glass-scroll::-webkit-scrollbar {
+        width: 4px;
+      }
+      .glass-scroll::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .glass-scroll::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.25);
+        border-radius: 9999px;
+      }
+      .glass-scroll::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      /* Ambient slow zoom & crossfade for background slides */
+      .bg-slide {
+        opacity: 0;
+        transform: scale(1.01);
+        transition:
+          opacity 1.8s ease-in-out,
+          transform 10s ease-out;
+        will-change: opacity, transform;
+      }
+      .bg-slide.is-active {
+        opacity: 1;
+        transform: scale(1.035);
+      }
+      @media (min-width: 640px) {
+        .bg-slide.is-active {
+          transform: scale(1.07);
+        }
+      }
+    </style>
+  </head>
+
+  <body
+    class="relative h-dvh w-screen overflow-hidden bg-slate-950 text-stone-100 antialiased selection:bg-[#8C1D18] selection:text-white"
+    style="font-family: 'Inter', sans-serif;"
+  >
+    <!-- Animated Full-Screen Background Slideshow -->
+    <div id="bg-slideshow" class="fixed inset-0 z-0 overflow-hidden" aria-hidden="true">
+      {
+        slides.map((slide, index) => (
+          <img
+            src={slide.src}
+            alt={slide.alt}
+            data-slide={index}
+            loading={index === 0 ? "eager" : "lazy"}
+            decoding="async"
+            class={`bg-slide fixed inset-0 h-full w-full object-cover ${slide.position} ${
+              index === 0 ? "is-active" : ""
+            }`}
+          />
+        ))
+      }
+    </div>
+
+  <div
+  class="fixed inset-0 z-[1] bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/25 pointer-events-none"
+></div>
+
+    <!-- Main Full-Viewport Flex Layout -->
+    <div class="relative z-10 flex h-full w-full flex-col justify-between px-3.5 py-3.5 sm:px-8 sm:py-6">
+      <!-- Top Translucent Header Bar -->
+      <header class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3">
+        <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-slate-950/55 px-3 py-1 sm:px-3.5 sm:py-1.5 backdrop-blur-md">
+          <span class="h-2 w-2 rounded-full bg-[#c9342d]"></span>
+          <span class="text-[10px] sm:text-[11px] font-semibold uppercase tracking-widest text-stone-200">
+            Civic Archive • 2009 – 2026
+          </span>
+        </div>
+
+        <span class="hidden sm:inline-block rounded-full border border-white/10 bg-slate-950/40 px-3 py-1 text-xs text-stone-300 backdrop-blur-sm">
+          Alameda, California
+        </span>
+      </header>
+
+      <!-- Center Floating Frosted-Glass Card -->
+      <main class="mx-auto my-auto flex w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-white/20 bg-slate-950/65 shadow-2xl backdrop-blur-md max-h-[73dvh] sm:max-h-[76dvh]">
+        <!-- Card Header (Pinned) -->
+        <div class="border-b border-white/15 bg-white/[0.03] px-5 py-4 sm:px-8 sm:py-6 shrink-0">
+          <div class="flex flex-wrap items-baseline justify-between gap-2">
+            <h1
+              class="text-xl sm:text-4xl font-bold tracking-tight text-white drop-shadow-sm"
+              style="font-family: 'Bitter', serif;"
+            >
+              Alameda Point Info
+            </h1>
+            <span class="rounded bg-[#8C1D18]/90 px-2 py-0.5 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white">
+              Retired 2026
+            </span>
+          </div>
+          <p class="mt-1 text-xs sm:text-sm font-medium text-amber-200/90">
+            The past, present, and future of Alameda Point.
+          </p>
+        </div>
+
+        <!-- Scrollable Narrative Body -->
+        <div class="glass-scroll overflow-y-auto px-5 py-4 sm:px-8 sm:py-6 space-y-3.5 sm:space-y-4 text-[13px] sm:text-[15px] leading-relaxed text-stone-200">
+          <p class="text-white/95 font-medium">
+            Located in the heart of the Bay Area on the island City of Alameda, Alameda Point (a former naval air station) is a neighborhood in transition. Creative reuse of military buildings and plans for new construction are in progress. Offering panoramic views of the San Francisco skyline, Alameda Point is home to historic buildings, important wildlife habitat, and a unique shoreline and open space landscape on the San Francisco Bay.
+          </p>
+
+          <p>
+            AlamedaPointInfo.com was started by a small volunteer group of Alameda residents who believed that, in order for good decisions to be made about the future of Alameda Point, the public needs easy access to important information. The AlamedaPointInfo website was their contribution to that effort.
+          </p>
+
+          <p>
+            The original version of the website was launched in July of 2009. It provided daily updates on city meetings and news stories. It was a central repository of key documents regarding redevelopment, years before the city set up its own webpage.
+          </p>
+
+          <p class="text-stone-100">
+            The site was retired in 2026. The historical record of events from that effort is distilled in a timeline of events, along with various key documents and maps, and are now hosted on the <strong class="font-semibold text-white">Alameda Point Environmental Report</strong>.
+          </p>
+        </div>
+
+        <!-- Card Footer CTA (Pinned) -->
+        <div class="border-t border-white/15 bg-white/[0.04] px-5 py-3.5 sm:px-8 sm:py-5 shrink-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2.5 sm:gap-3">
+          <span class="hidden sm:inline text-xs text-stone-300">
+            Curated timeline, documents &amp; maps
+          </span>
+          <a
+            href={archiveUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#8C1D18] hover:bg-[#a6231d] px-4 py-2.5 text-xs sm:text-sm font-semibold text-white shadow-lg shadow-black/30 transition-all hover:translate-y-[-1px]"
+          >
+            Alameda Point Environmental Report
+            <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </main>
+
+      <!-- Bottom Controls & Credits Bar -->
+      <footer class="mx-auto flex w-full max-w-5xl flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-xs text-stone-300/90">
+        <!-- Interactive Slide Switcher (Top on mobile for thumb access, center on desktop) -->
+        <div
+          class="order-1 sm:order-2 flex items-center gap-1.5 rounded-full border border-white/15 bg-slate-950/60 px-2.5 py-1.5 backdrop-blur-md"
+          role="group"
+          aria-label="Background photo switcher"
+        >
+          {
+            slides.map((slide, index) => (
+              <button
+                type="button"
+                data-dot={index}
+                aria-label={`Show ${slide.label}`}
+                title={slide.label}
+                class={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  index === 0
+                    ? "w-6 bg-white"
+                    : "w-2 bg-white/40 hover:bg-white/75"
+                }`}
+              />
+            ))
+          }
+        </div>
+
+        <!-- Credits Row on Mobile / Split Left-Right on Desktop -->
+        <div class="order-2 sm:contents flex w-full items-center justify-between gap-2">
+          <!-- Left: Archive & Photo Credit -->
+          <p class="sm:order-1 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm truncate">
+            Photos: Richard Bangert
+          </p>
+
+          <!-- Right: Web Credit -->
+          <p class="sm:order-3 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm shrink-0">
+            Web by{" "}
+            <a
+              href="https://supercleanweb.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white transition-colors"
+            >
+              Superclean
+            </a>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const slides = document.querySelectorAll<HTMLImageElement>("[data-slide]");
+      const dots = document.querySelectorAll<HTMLButtonElement>("[data-dot]");
+      let current = 0;
+      const intervalMs = 8000;
+
+      function goToSlide(nextIndex: number) {
+        slides[current].classList.remove("is-active");
+        dots[current].classList.remove("w-6", "bg-white");
+        dots[current].classList.add("w-2", "bg-white/40");
+
+        current = (nextIndex + slides.length) % slides.length;
+
+        slides[current].classList.add("is-active");
+        dots[current].classList.remove("w-2", "bg-white/40");
+        dots[current].classList.add("w-6", "bg-white");
+      }
+
+      let timer = window.setInterval(() => goToSlide(current + 1), intervalMs);
+
+      dots.forEach((dot, idx) => {
+        dot.addEventListener("click", () => {
+          goToSlide(idx);
+          window.clearInterval(timer);
+          timer = window.setInterval(() => goToSlide(current + 1), intervalMs);
+        });
+      });
+    </script>
+  </body>
 </html>
