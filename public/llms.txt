@@ -1,0 +1,16 @@
+# Alameda Point Info (2009–2026)
+
+> Community civic archive documenting the redevelopment, environmental cleanup, and reuse of the former Naval Air Station Alameda at Alameda Point, California.
+
+## Overview
+AlamedaPointInfo.com was launched in July 2009 by a small volunteer group of Alameda residents to provide transparent public access to city meetings, redevelopment documents, and news stories—years before the City of Alameda established its own dedicated webpage. The site was retired in 2026.
+
+## Curated Archive & Timeline
+- [Alameda Point Environmental Report Archive](https://alamedapointenviro.com/alameda-point-info-the-ultimate-resource-for-the-past-present-and-future-of-alameda-point/): Full historical timeline, key redevelopment documents, and maps maintained by Richard Bangert.
+
+## Site Pages
+- [Home](https://alamedapointinfo.com/): Overview of the Alameda Point Info civic archive.
+- [About](https://alamedapointinfo.com/about): History of the 2009–2026 volunteer initiative and Alameda Point background.
+- [Contact](https://alamedapointinfo.com/contact): Archive inquiries and attribution details.
+- [Privacy Policy](https://alamedapointinfo.com/privacy): Analytics and visitor privacy disclosures.
+- [Sitemap](https://alamedapointinfo.com/sitemap.xml): XML sitemap of all public pages.

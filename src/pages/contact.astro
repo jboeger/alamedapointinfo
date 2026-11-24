@@ -1,0 +1,92 @@
+---
+import "../styles/global.css";
+const siteUrl = "https://alamedapointinfo.com";
+const archiveUrl =
+  "https://alamedapointenviro.com/alameda-point-info-the-ultimate-resource-for-the-past-present-and-future-of-alameda-point/";
+const gaId = "G-7DRZ21YS2J";
+const pageTitle = "Contact & Archive Inquiries | Alameda Point Info";
+const pageDescription =
+  "Contact information and archival reference links for AlamedaPointInfo.com, photography credits for Richard Bangert, and web engineering by Superclean.";
+---
+
+<!doctype html>
+<html lang="en" class="h-full overflow-hidden">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={`${siteUrl}/contact`} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={`${siteUrl}/contact`} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={`${siteUrl}/images/hero-sunset.jpg`} />
+    <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  </head>
+  <body class="relative h-dvh w-screen overflow-hidden bg-slate-950 text-stone-100 antialiased" style="font-family: 'Inter', sans-serif;">
+    <img src="/images/aerial-housing.jpg" alt="Aerial view of Alameda Point" class="fixed inset-0 h-full w-full object-cover object-center" />
+    <div class="relative z-10 flex h-full w-full flex-col justify-between px-4 py-4 sm:px-8 sm:py-6">
+      <header class="mx-auto flex w-full max-w-5xl items-center justify-between gap-3">
+        <a href="/" class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-slate-950/60 px-3.5 py-1.5 text-xs font-semibold text-stone-200 backdrop-blur-md hover:bg-slate-950/80">
+          &larr; Alameda Point Info
+        </a>
+        <nav class="flex items-center gap-2 text-xs">
+          <a href="/about" class="rounded-full border border-white/15 bg-slate-950/50 px-3 py-1 text-stone-200 backdrop-blur-md hover:bg-slate-950/75">About</a>
+          <a href="/contact" class="rounded-full bg-[#8C1D18] px-3 py-1 font-medium text-white">Contact</a>
+          <a href="/privacy" class="rounded-full border border-white/15 bg-slate-950/50 px-3 py-1 text-stone-200 backdrop-blur-md hover:bg-slate-950/75">Privacy</a>
+        </nav>
+      </header>
+
+      <main class="mx-auto my-auto flex w-full max-w-2xl flex-col overflow-hidden rounded-2xl border border-white/20 bg-slate-950/70 shadow-2xl backdrop-blur-md max-h-[76dvh]">
+        <div class="border-b border-white/15 bg-white/[0.03] px-6 py-5 sm:px-8 shrink-0">
+          <h1 class="text-2xl sm:text-3xl font-bold text-white" style="font-family: 'Bitter', serif;">
+            Contact &amp; Archive Inquiries
+          </h1>
+          <p class="mt-1 text-xs sm:text-sm text-amber-200/90">Editorial Archive, Photography &amp; Technical Credits</p>
+        </div>
+
+        <div class="overflow-y-auto px-6 py-5 sm:px-8 space-y-4 text-sm sm:text-[15px] leading-relaxed text-stone-200">
+          <p>
+            AlamedaPointInfo.com was retired from active daily publishing in 2026 and is maintained as a static historical memorial page for the volunteer civic project founded in Alameda, California in July 2009.
+          </p>
+          <p>
+            <strong class="text-white">Historical Documents &amp; Editorial Archive:</strong> For questions regarding historical timelines, environmental cleanup records, Navy transfer documents, or Alameda Point photography featured on this site, please visit the <a href={archiveUrl} target="_blank" rel="noopener noreferrer" class="text-amber-300 underline hover:text-amber-200">Alameda Point Environmental Report</a>, curated by Richard Bangert.
+          </p>
+          <p>
+            <strong class="text-white">Current Municipal Redevelopment Information:</strong> For active leasing, permitting, and City of Alameda planning agendas, please consult the official City of Alameda website at <a href="https://www.alamedaca.gov" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline hover:text-amber-200">alamedaca.gov</a>.
+          </p>
+          <p>
+            <strong class="text-white">Website Design &amp; Hosting:</strong> Designed and built by <a href="https://supercleanweb.com" target="_blank" rel="noopener noreferrer" class="text-amber-300 underline hover:text-amber-200">Superclean</a>.
+          </p>
+        </div>
+
+        <div class="border-t border-white/15 bg-white/[0.04] px-6 py-4 sm:px-8 shrink-0 flex items-center justify-between">
+          <a href="/" class="text-xs text-stone-300 hover:text-white">&larr; Back to Home</a>
+          <a href={archiveUrl} target="_blank" rel="noopener noreferrer" class="rounded-lg bg-[#8C1D18] hover:bg-[#a6231d] px-4 py-2 text-xs sm:text-sm font-semibold text-white">
+            Open Archive &rarr;
+          </a>
+        </div>
+      </main>
+
+      <footer class="mx-auto flex w-full max-w-5xl items-center justify-between text-xs text-stone-300/90">
+        <p class="rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm">AlamedaPointInfo.com</p>
+        <p class="rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm">
+          Web by <a href="https://supercleanweb.com" target="_blank" rel="noopener noreferrer" class="font-medium text-white underline">Superclean</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

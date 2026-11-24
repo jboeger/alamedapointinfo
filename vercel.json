@@ -1,0 +1,15 @@
+{
+  "rewrites": [
+    {
+      "source": "/:path((?!about$|contact$|privacy$|_astro/|images/|api/|llms\\.txt$|sitemap\\.xml$|robots\\.txt$|favicon\\.svg$|favicon\\.png$|apple-touch-icon\\.png$).+)",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/api/not-found?path=:path"
+    }
+  ]
+}

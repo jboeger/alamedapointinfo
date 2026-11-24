@@ -15,30 +15,44 @@ const schemaData = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organization`,
+      name: "Alameda Point Info",
+      url: `${siteUrl}/`,
+      logo: `${siteUrl}/apple-touch-icon.png`,
+      description:
+        "Volunteer civic information initiative launched in July 2009 to provide public access to Alameda Point redevelopment documents, city meetings, and history through 2026.",
+      foundingDate: "2009-07",
+      dissolutionDate: "2026",
+      areaServed: {
+        "@type": "City",
+        name: "Alameda",
+        containedInPlace: {
+          "@type": "State",
+          name: "California",
+        },
+      },
+      sameAs: [
+        "https://alamedapointenviro.com/alameda-point-info-the-ultimate-resource-for-the-past-present-and-future-of-alameda-point/",
+      ],
+    },
+    {
       "@type": "WebSite",
       "@id": `${siteUrl}/#website`,
-      url: siteUrl,
+      url: `${siteUrl}/`,
       name: "Alameda Point Info",
       description: pageDescription,
+      publisher: { "@id": `${siteUrl}/#organization` },
       inLanguage: "en-US",
     },
     {
       "@type": "WebPage",
       "@id": `${siteUrl}/#webpage`,
-      url: siteUrl,
+      url: `${siteUrl}/`,
       name: pageTitle,
       description: pageDescription,
       isPartOf: { "@id": `${siteUrl}/#website` },
-      about: {
-        "@type": "Place",
-        name: "Alameda Point",
-        address: {
-          "@type": "PostalAddress",
-          addressLocality: "Alameda",
-          addressRegion: "CA",
-          addressCountry: "US",
-        },
-      },
+      about: { "@id": `${siteUrl}/#organization` },
       relatedLink: archiveUrl,
     },
   ],
