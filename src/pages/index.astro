@@ -1,8 +1,48 @@
 ---
 import "../styles/global.css";
 
+const siteUrl = "https://alamedapointinfo.com";
 const archiveUrl =
   "https://alamedapointenviro.com/alameda-point-info-the-ultimate-resource-for-the-past-present-and-future-of-alameda-point/";
+const gaId = "G-7DRZ21YS2J";
+
+const pageTitle = "Alameda Point Info | Historical Archive (2009–2026)";
+const pageDescription =
+  "AlamedaPointInfo.com served as a central volunteer community repository for Alameda Point redevelopment from 2009 to 2026. Explore the historical timeline, documents, and maps.";
+const ogImage = `${siteUrl}/images/hero-sunset.jpg`;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: "Alameda Point Info",
+      description: pageDescription,
+      inLanguage: "en-US",
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${siteUrl}/#webpage`,
+      url: siteUrl,
+      name: pageTitle,
+      description: pageDescription,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      about: {
+        "@type": "Place",
+        name: "Alameda Point",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Alameda",
+          addressRegion: "CA",
+          addressCountry: "US",
+        },
+      },
+      relatedLink: archiveUrl,
+    },
+  ],
+};
 
 const slides = [
   {
@@ -37,20 +77,56 @@ const slides = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alameda Point Info | Historical Archive (2009–2026)</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <link rel="canonical" href={siteUrl} />
+
+    <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <meta
-      name="description"
-      content="AlamedaPointInfo.com served as a central community repository for Alameda Point redevelopment from 2009 to 2026."
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:site_name" content="Alameda Point Info" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content="Sunset over San Francisco Bay from Alameda Point" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured SEO Schema -->
+    <script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
+
+    <!-- Google Analytics 4 -->
+    <script
+      is:inline
+      async
+      src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+    ></script>
+    <script is:inline define:vars={{ gaId }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", gaId);
+    </script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bitter:wght@600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+
     <style>
       /* Subtle custom scrollbar for the inner text box on small viewports */
       .glass-scroll::-webkit-scrollbar {
@@ -109,10 +185,6 @@ const slides = [
         ))
       }
     </div>
-
-  <div
-  class="fixed inset-0 z-[1] bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/25 pointer-events-none"
-></div>
 
     <!-- Main Full-Viewport Flex Layout -->
     <div class="relative z-10 flex h-full w-full flex-col justify-between px-3.5 py-3.5 sm:px-8 sm:py-6">
@@ -188,7 +260,7 @@ const slides = [
 
       <!-- Bottom Controls & Credits Bar -->
       <footer class="mx-auto flex w-full max-w-5xl flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-xs text-stone-300/90">
-        <!-- Interactive Slide Switcher (Top on mobile for thumb access, center on desktop) -->
+        <!-- Interactive Slide Switcher -->
         <div
           class="order-1 sm:order-2 flex items-center gap-1.5 rounded-full border border-white/15 bg-slate-950/60 px-2.5 py-1.5 backdrop-blur-md"
           role="group"
@@ -211,14 +283,12 @@ const slides = [
           }
         </div>
 
-        <!-- Credits Row on Mobile / Split Left-Right on Desktop -->
+        <!-- Credits Row -->
         <div class="order-2 sm:contents flex w-full items-center justify-between gap-2">
-          <!-- Left: Archive & Photo Credit -->
           <p class="sm:order-1 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm truncate">
             Photos: Richard Bangert
           </p>
 
-          <!-- Right: Web Credit -->
           <p class="sm:order-3 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm shrink-0">
             Web by{" "}
             <a
