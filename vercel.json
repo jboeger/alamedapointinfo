@@ -1,5 +1,27 @@
 {
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Vary",
+          "value": "Accept"
+        }
+      ]
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/api/home-markdown"
+    },
     {
       "source": "/:path((?!about$|contact$|privacy$|_astro/|images/|api/|llms\\.txt$|sitemap\\.xml$|robots\\.txt$|favicon\\.svg$|favicon\\.png$|apple-touch-icon\\.png$).+)",
       "has": [
