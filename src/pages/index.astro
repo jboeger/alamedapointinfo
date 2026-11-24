@@ -93,7 +93,7 @@ const slides = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
-    <link rel="canonical" href={siteUrl} />
+    <link rel="canonical" href={`${siteUrl}/`} />
 
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -102,7 +102,7 @@ const slides = [
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content={siteUrl} />
+    <meta property="og:url" content={`${siteUrl}/`} />
     <meta property="og:site_name" content="Alameda Point Info" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
@@ -297,12 +297,20 @@ const slides = [
           }
         </div>
 
-        <!-- Credits Row -->
+        <!-- Credits & Trust Pages Row -->
         <div class="order-2 sm:contents flex w-full items-center justify-between gap-2">
-          <p class="sm:order-1 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm truncate">
-            Photos: Richard Bangert
-          </p>
+          <!-- Left: Photo Credit & Trust Anchor Links -->
+          <div class="sm:order-1 flex items-center gap-2 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm truncate">
+            <span>Photos: Richard Bangert</span>
+            <span class="text-white/30">•</span>
+            <a href="/about" class="hover:text-white transition-colors">About</a>
+            <span class="text-white/30">•</span>
+            <a href="/contact" class="hover:text-white transition-colors">Contact</a>
+            <span class="text-white/30">•</span>
+            <a href="/privacy" class="hover:text-white transition-colors">Privacy</a>
+          </div>
 
+          <!-- Right: Web Credit -->
           <p class="sm:order-3 rounded-full border border-white/10 bg-slate-950/50 px-3 py-1 backdrop-blur-sm shrink-0">
             Web by{" "}
             <a
