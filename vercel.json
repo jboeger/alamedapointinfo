@@ -23,7 +23,11 @@
       "destination": "/api/home-markdown"
     },
     {
-      "source": "/:path((?!about$|contact$|privacy$|_astro/|images/|api/|llms\\.txt$|sitemap\\.xml$|robots\\.txt$|favicon\\.svg$|favicon\\.png$|apple-touch-icon\\.png$).+)",
+      "source": "/",
+      "destination": "/home"
+    },
+    {
+      "source": "/:path((?!home$|about$|contact$|privacy$|_astro/|images/|api/|llms\\.txt$|sitemap\\.xml$|robots\\.txt$|favicon\\.svg$|favicon\\.png$|apple-touch-icon\\.png$).+)",
       "has": [
         {
           "type": "header",
